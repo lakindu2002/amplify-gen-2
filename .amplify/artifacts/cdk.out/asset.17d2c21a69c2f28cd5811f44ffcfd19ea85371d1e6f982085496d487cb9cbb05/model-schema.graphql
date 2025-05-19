@@ -1,0 +1,11 @@
+type Users @model @auth(rules: [{allow: owner, ownerField: "owner"},
+  {allow: owner, ownerField: "profileOwner"}])
+{
+  userId: String! @primaryKey
+  profileOwner: String
+  name: String
+  email: String
+  createdAt: String
+  updatedAt: String
+  messagingChannel: String
+}
