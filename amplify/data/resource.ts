@@ -1,4 +1,5 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { postConfirmation } from '../triggers/postConfirmation/resource';
 
 const schema = a.schema({
   Users: a
@@ -9,11 +10,12 @@ const schema = a.schema({
       email: a.string(),
       createdAt: a.string(),
       updatedAt: a.string(),
-      messagingChannel: a.string(),
     })
     .identifier(['userId'])
     .authorization((allow) => [allow.owner(), allow.ownerDefinedIn("profileOwner")]),
-});
+}).authorization((allow) => [
+  allow.resource(postConfirmation),
+]);
 
 export type Schema = ClientSchema<typeof schema>;
 
@@ -22,6 +24,7 @@ export const data = defineData({
   authorizationModes: {
     defaultAuthorizationMode: 'identityPool',
   },
+  name: 'api',
 });
 
 /*== STEP 2 ===============================================================

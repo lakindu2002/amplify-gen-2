@@ -26,7 +26,7 @@
     "unauthenticated_identities_enabled": true
   },
   "data": {
-    "url": "https://zqjaotg5pnadtl34u5f4lkttse.appsync-api.us-east-1.amazonaws.com/graphql",
+    "url": "https://p5yk44ywr5hajiwzovhssc6bfa.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_region": "us-east-1",
     "default_authorization_type": "AWS_IAM",
     "authorization_types": [
@@ -75,13 +75,6 @@
             },
             "updatedAt": {
               "name": "updatedAt",
-              "isArray": false,
-              "type": "String",
-              "isRequired": false,
-              "attributes": []
-            },
-            "messagingChannel": {
-              "name": "messagingChannel",
               "isArray": false,
               "type": "String",
               "isRequired": false,

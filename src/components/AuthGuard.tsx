@@ -1,4 +1,5 @@
 import { fetchAuthSession } from "aws-amplify/auth";
+import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
 interface AuthGuardProps {
@@ -7,12 +8,14 @@ interface AuthGuardProps {
 
 export const AuthGuard: FC<AuthGuardProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     const checkUser = async () => {
       try {
         const user = await fetchAuthSession();
         console.log("User session:", user);
         if (!user.tokens) {
+          router.push("/login");
           setIsAuthenticated(false);
         } else {
           setIsAuthenticated(true);
@@ -25,10 +28,6 @@ export const AuthGuard: FC<AuthGuardProps> = ({ children }) => {
 
     checkUser();
   }, []);
-
-  if (!isAuthenticated) {
-    return null;
-  }
 
   if (isAuthenticated) {
     return children;

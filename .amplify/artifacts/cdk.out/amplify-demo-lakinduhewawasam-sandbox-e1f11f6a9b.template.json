@@ -163,7 +163,7 @@
    "Value": {
     "Fn::GetAtt": [
      "data7552DF31",
-     "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataamplifyDataGraphQLAPI0E36C03AApiId"
+     "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     ]
    }
   },
@@ -171,7 +171,7 @@
    "Value": {
     "Fn::GetAtt": [
      "data7552DF31",
-     "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataamplifyDataGraphQLAPI0E36C03AGraphQLUrl"
+     "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8GraphQLUrl"
     ]
    }
   },
@@ -204,7 +204,7 @@
               {
                "Fn::GetAtt": [
                 "data7552DF31",
-                "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBD8C4B5F3DestinationBucketArn"
+                "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBFFCA90CEDestinationBucketArn"
                ]
               }
              ]
@@ -304,7 +304,7 @@
        {
         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
        },
-       "/880d51d33434b7efeff3893cfe6ddf077bb52871e22997cf8f9a388e8a36a969.json"
+       "/f6ec600d130b2cefe39ec19b3d3d68fb9e3ec467068bb389da7d67c72e93a21c.json"
       ]
      ]
     }
@@ -344,6 +344,12 @@
        "auth179371D7",
        "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthIdentityPoolDF37E6E4Ref"
       ]
+     },
+     "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bfunctionNestedStackfunctionNestedStackResource69E502B7Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bfunctionpostConfirmationlambdaServiceRoleA9EF535ERef": {
+      "Fn::GetAtt": [
+       "function1351588B",
+       "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bfunctionpostConfirmationlambdaServiceRoleA9EF535ERef"
+      ]
      }
     },
     "Tags": [
@@ -372,7 +378,7 @@
        {
         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
        },
-       "/7ca842d957cbf345143c73b1f3a269305a78bc36a2f12094840e249fe59f5c99.json"
+       "/20ae6c68fa08a6975131fc03cbf8397308841c093cf64d73ae99de24e1512fb5.json"
       ]
      ]
     }
