@@ -10,9 +10,20 @@ const schema = a.schema({
       email: a.string(),
       createdAt: a.string(),
       updatedAt: a.string(),
+      profilePicture: a.string(),
     })
     .identifier(['userId'])
     .authorization((allow) => [allow.owner(), allow.ownerDefinedIn("profileOwner")]),
+  Notes: a
+    .model({
+      id: a.string().required(),
+      title: a.string().required(),
+      description: a.string(),
+      createdAt: a.string(),
+      updatedAt: a.string(),
+    })
+    .identifier(['id'])
+    .authorization((allow) => [allow.owner()]),
 }).authorization((allow) => [
   allow.resource(postConfirmation),
 ]);

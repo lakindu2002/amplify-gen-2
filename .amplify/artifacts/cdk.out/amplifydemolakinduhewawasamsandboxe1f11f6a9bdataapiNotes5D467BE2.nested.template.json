@@ -349,7 +349,7 @@
   }
  },
  "Resources": {
-  "UsersTable": {
+  "NotesTable": {
    "Type": "Custom::AmplifyDynamoDBTable",
    "Properties": {
     "ServiceToken": {
@@ -359,7 +359,7 @@
      "Fn::Join": [
       "",
       [
-       "Users-",
+       "Notes-",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -369,13 +369,13 @@
     },
     "attributeDefinitions": [
      {
-      "attributeName": "userId",
+      "attributeName": "id",
       "attributeType": "S"
      }
     ],
     "keySchema": [
      {
-      "attributeName": "userId",
+      "attributeName": "id",
       "keyType": "HASH"
      }
     ],
@@ -428,10 +428,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/UsersTable/Default/Default"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/NotesTable/Default/Default"
    }
   },
-  "UsersIAMRole8E344200": {
+  "NotesIAMRoleBB6C0AC3": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -475,7 +475,7 @@
               "Fn::Join": [
                "",
                [
-                "Users-",
+                "Notes-",
                 {
                  "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
                 },
@@ -494,7 +494,7 @@
               "Fn::Join": [
                "",
                [
-                "Users-",
+                "Notes-",
                 {
                  "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
                 },
@@ -517,7 +517,7 @@
      "Fn::Join": [
       "",
       [
-       "UsersIAMRoleada5c7-",
+       "NotesIAMRolea20c7e-",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -543,10 +543,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/UsersIAMRole/Resource"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/NotesIAMRole/Resource"
    }
   },
-  "UsersDataSource": {
+  "NotesDataSource": {
    "Type": "AWS::AppSync::DataSource",
    "Properties": {
     "ApiId": {
@@ -570,7 +570,7 @@
              ":",
              {
               "Fn::GetAtt": [
-               "UsersTable",
+               "NotesTable",
                "TableArn"
               ]
              }
@@ -583,25 +583,25 @@
       ]
      }
     },
-    "Name": "UsersTable",
+    "Name": "NotesTable",
     "ServiceRoleArn": {
      "Fn::GetAtt": [
-      "UsersIAMRole8E344200",
+      "NotesIAMRoleBB6C0AC3",
       "Arn"
      ]
     },
     "Type": "AMAZON_DYNAMODB"
    },
    "DependsOn": [
-    "UsersIAMRole8E344200"
+    "NotesIAMRoleBB6C0AC3"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/UsersDataSource/Resource"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/NotesDataSource/Resource"
    }
   },
-  "QuerygetUserspreAuth0FunctionQuerygetUserspreAuth0FunctionAppSyncFunction668BAC13": {
+  "QuerygetNotespreAuth0FunctionQuerygetNotespreAuth0FunctionAppSyncFunction6C65E8AE": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -611,19 +611,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerygetUserspreAuth0Function",
+    "Name": "QuerygetNotespreAuth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5f79711030c7a5ad144da99d21a95a23eb157fcfb28c6dbfa893f5d10854d6ec.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ffc597e18023b530e6afcbe02cee647d49550fa9e77bd06f1dee09d8b1be8de3.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerygetUserspreAuth0Function/QuerygetUserspreAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerygetNotespreAuth0Function/QuerygetNotespreAuth0Function.AppSyncFunction"
    }
   },
-  "QuerygetUsersauth0FunctionQuerygetUsersauth0FunctionAppSyncFunctionB3210D4F": {
+  "QuerygetNotesauth0FunctionQuerygetNotesauth0FunctionAppSyncFunction1863742A": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -633,19 +633,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerygetUsersauth0Function",
+    "Name": "QuerygetNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/dbc1fee047f6cb1640cfe9981b6791237ab729500a9762b1e7d5b9bf7dc6e840.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6b25c9b572c67e0f7ad41cb8019a90825f3db4b02a0a15b837c7a82dcb302060.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerygetUsersauth0Function/QuerygetUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerygetNotesauth0Function/QuerygetNotesauth0Function.AppSyncFunction"
    }
   },
-  "QuerygetUserspostAuth0FunctionQuerygetUserspostAuth0FunctionAppSyncFunctionA4BD12D3": {
+  "QuerygetNotespostAuth0FunctionQuerygetNotespostAuth0FunctionAppSyncFunctionDC14EAD2": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -655,7 +655,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerygetUserspostAuth0Function",
+    "Name": "QuerygetNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -664,10 +664,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerygetUserspostAuth0Function/QuerygetUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerygetNotespostAuth0Function/QuerygetNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "QueryGetUsersDataResolverFnQueryGetUsersDataResolverFnAppSyncFunction8C3DB3ED": {
+  "QueryGetNotesDataResolverFnQueryGetNotesDataResolverFnAppSyncFunction15A21A9F": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -675,12 +675,12 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QueryGetUsersDataResolverFn",
+    "Name": "QueryGetNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/08f4d557693d96c1a4efba0f9dc91330e4b19772fd5477c156468843e3d9cb5e.vtl"
     },
@@ -689,45 +689,45 @@
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QueryGetUsersDataResolverFn/QueryGetUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QueryGetNotesDataResolverFn/QueryGetNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "GetUsersResolver": {
+  "GetNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "getUsers",
+    "FieldName": "getNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "QuerygetUserspreAuth0FunctionQuerygetUserspreAuth0FunctionAppSyncFunction668BAC13",
+        "QuerygetNotespreAuth0FunctionQuerygetNotespreAuth0FunctionAppSyncFunction6C65E8AE",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QuerygetUsersauth0FunctionQuerygetUsersauth0FunctionAppSyncFunctionB3210D4F",
+        "QuerygetNotesauth0FunctionQuerygetNotesauth0FunctionAppSyncFunction1863742A",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QuerygetUserspostAuth0FunctionQuerygetUserspostAuth0FunctionAppSyncFunctionA4BD12D3",
+        "QuerygetNotespostAuth0FunctionQuerygetNotespostAuth0FunctionAppSyncFunctionDC14EAD2",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QueryGetUsersDataResolverFnQueryGetUsersDataResolverFnAppSyncFunction8C3DB3ED",
+        "QueryGetNotesDataResolverFnQueryGetNotesDataResolverFnAppSyncFunction15A21A9F",
         "FunctionId"
        ]
       }
@@ -737,7 +737,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -756,7 +756,7 @@
                ":",
                {
                 "Fn::GetAtt": [
-                 "UsersTable",
+                 "NotesTable",
                  "TableArn"
                 ]
                }
@@ -806,10 +806,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/queryGetUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/queryGetNotesResolver"
    }
   },
-  "QuerylistUserspreAuth0FunctionQuerylistUserspreAuth0FunctionAppSyncFunctionAB63F07E": {
+  "QuerylistNotespreAuth0FunctionQuerylistNotespreAuth0FunctionAppSyncFunction424C9F41": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -819,19 +819,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerylistUserspreAuth0Function",
+    "Name": "QuerylistNotespreAuth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/48fa7120c9b928de9e88a683a04cd9199a113862cc652a3b87a5ef0c05f90f9e.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3e81312d4c75951808eda9fcd5f854c1925c0b819de0939f09c4fe2eebb190b8.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerylistUserspreAuth0Function/QuerylistUserspreAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerylistNotespreAuth0Function/QuerylistNotespreAuth0Function.AppSyncFunction"
    }
   },
-  "QuerylistUsersauth0FunctionQuerylistUsersauth0FunctionAppSyncFunctionA1FF61AB": {
+  "QuerylistNotesauth0FunctionQuerylistNotesauth0FunctionAppSyncFunction4C828F45": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -841,19 +841,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerylistUsersauth0Function",
+    "Name": "QuerylistNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/dbc1fee047f6cb1640cfe9981b6791237ab729500a9762b1e7d5b9bf7dc6e840.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6b25c9b572c67e0f7ad41cb8019a90825f3db4b02a0a15b837c7a82dcb302060.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerylistUsersauth0Function/QuerylistUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerylistNotesauth0Function/QuerylistNotesauth0Function.AppSyncFunction"
    }
   },
-  "QuerylistUserspostAuth0FunctionQuerylistUserspostAuth0FunctionAppSyncFunction37C5583D": {
+  "QuerylistNotespostAuth0FunctionQuerylistNotespostAuth0FunctionAppSyncFunctionCEA378D3": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -863,7 +863,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QuerylistUserspostAuth0Function",
+    "Name": "QuerylistNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -872,10 +872,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QuerylistUserspostAuth0Function/QuerylistUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QuerylistNotespostAuth0Function/QuerylistNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "QueryListUsersDataResolverFnQueryListUsersDataResolverFnAppSyncFunction83574EBA": {
+  "QueryListNotesDataResolverFnQueryListNotesDataResolverFnAppSyncFunctionBD5C872B": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -883,12 +883,12 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "QueryListUsersDataResolverFn",
+    "Name": "QueryListNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9fcbe070ecd3023c5bf5b966fa9584757db9762eef123bad0820bd87591b2174.vtl"
     },
@@ -897,45 +897,45 @@
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/QueryListUsersDataResolverFn/QueryListUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/QueryListNotesDataResolverFn/QueryListNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "ListUsersResolver": {
+  "ListNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "listUsers",
+    "FieldName": "listNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "QuerylistUserspreAuth0FunctionQuerylistUserspreAuth0FunctionAppSyncFunctionAB63F07E",
+        "QuerylistNotespreAuth0FunctionQuerylistNotespreAuth0FunctionAppSyncFunction424C9F41",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QuerylistUsersauth0FunctionQuerylistUsersauth0FunctionAppSyncFunctionA1FF61AB",
+        "QuerylistNotesauth0FunctionQuerylistNotesauth0FunctionAppSyncFunction4C828F45",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QuerylistUserspostAuth0FunctionQuerylistUserspostAuth0FunctionAppSyncFunction37C5583D",
+        "QuerylistNotespostAuth0FunctionQuerylistNotespostAuth0FunctionAppSyncFunctionCEA378D3",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "QueryListUsersDataResolverFnQueryListUsersDataResolverFnAppSyncFunction83574EBA",
+        "QueryListNotesDataResolverFnQueryListNotesDataResolverFnAppSyncFunctionBD5C872B",
         "FunctionId"
        ]
       }
@@ -945,7 +945,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -964,7 +964,7 @@
                ":",
                {
                 "Fn::GetAtt": [
-                 "UsersTable",
+                 "NotesTable",
                  "TableArn"
                 ]
                }
@@ -1014,10 +1014,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/queryListUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/queryListNotesResolver"
    }
   },
-  "MutationcreateUsersinit0FunctionMutationcreateUsersinit0FunctionAppSyncFunction9591F11A": {
+  "MutationcreateNotesinit0FunctionMutationcreateNotesinit0FunctionAppSyncFunctionF0025F31": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1027,19 +1027,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationcreateUsersinit0Function",
+    "Name": "MutationcreateNotesinit0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3cf32e28e3985b88b598dacbcc9a81cbb12cab62b6507082eb20a0702d3c197e.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a183ddccbd956316c38ef97177b8f088ef0826f62023323f5ae6053d348ccffc.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationcreateUsersinit0Function/MutationcreateUsersinit0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationcreateNotesinit0Function/MutationcreateNotesinit0Function.AppSyncFunction"
    }
   },
-  "MutationcreateUserspreAuth0FunctionMutationcreateUserspreAuth0FunctionAppSyncFunctionE1AF0699": {
+  "MutationcreateNotespreAuth0FunctionMutationcreateNotespreAuth0FunctionAppSyncFunction4AF669F5": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1049,19 +1049,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationcreateUserspreAuth0Function",
+    "Name": "MutationcreateNotespreAuth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1003d4d9953b2263fbd7dbc9024cda49b95e9b8bbd8c759366a71bafacd629ca.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/39fb35c6f8e8573ffe3a63ba867cf543b05af129a104b387a44f03c3d85da0c3.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationcreateUserspreAuth0Function/MutationcreateUserspreAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationcreateNotespreAuth0Function/MutationcreateNotespreAuth0Function.AppSyncFunction"
    }
   },
-  "MutationcreateUsersauth0FunctionMutationcreateUsersauth0FunctionAppSyncFunctionEE081001": {
+  "MutationcreateNotesauth0FunctionMutationcreateNotesauth0FunctionAppSyncFunction49FFB1E7": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1071,19 +1071,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationcreateUsersauth0Function",
+    "Name": "MutationcreateNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ec794c158addf3391e6d6540d19334cfaaba78330aefdd12c6597f84512ab430.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ed08d6a61dec92c0838ef069ad33851ee1d40859e999cd2ee797cf730f5e00c6.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationcreateUsersauth0Function/MutationcreateUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationcreateNotesauth0Function/MutationcreateNotesauth0Function.AppSyncFunction"
    }
   },
-  "MutationcreateUserspostAuth0FunctionMutationcreateUserspostAuth0FunctionAppSyncFunctionD5156E0F": {
+  "MutationcreateNotespostAuth0FunctionMutationcreateNotespostAuth0FunctionAppSyncFunction0A11DE81": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1093,7 +1093,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationcreateUserspostAuth0Function",
+    "Name": "MutationcreateNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -1102,10 +1102,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationcreateUserspostAuth0Function/MutationcreateUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationcreateNotespostAuth0Function/MutationcreateNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "MutationCreateUsersDataResolverFnMutationCreateUsersDataResolverFnAppSyncFunction9F182EFA": {
+  "MutationCreateNotesDataResolverFnMutationCreateNotesDataResolverFnAppSyncFunctionA1276E64": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1113,65 +1113,65 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationCreateUsersDataResolverFn",
+    "Name": "MutationCreateNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9d5a97fb98b390045ef6d1f9979b201f968db2d16d21ee36f2ccddeef166922c.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4b231d3a61784aa45a75ea70edb1085bdb9f048057137a323e8ced681889856f.vtl"
     },
     "ResponseMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationCreateUsersDataResolverFn/MutationCreateUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationCreateNotesDataResolverFn/MutationCreateNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "CreateUsersResolver": {
+  "CreateNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "createUsers",
+    "FieldName": "createNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "MutationcreateUsersinit0FunctionMutationcreateUsersinit0FunctionAppSyncFunction9591F11A",
+        "MutationcreateNotesinit0FunctionMutationcreateNotesinit0FunctionAppSyncFunctionF0025F31",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationcreateUserspreAuth0FunctionMutationcreateUserspreAuth0FunctionAppSyncFunctionE1AF0699",
+        "MutationcreateNotespreAuth0FunctionMutationcreateNotespreAuth0FunctionAppSyncFunction4AF669F5",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationcreateUsersauth0FunctionMutationcreateUsersauth0FunctionAppSyncFunctionEE081001",
+        "MutationcreateNotesauth0FunctionMutationcreateNotesauth0FunctionAppSyncFunction49FFB1E7",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationcreateUserspostAuth0FunctionMutationcreateUserspostAuth0FunctionAppSyncFunctionD5156E0F",
+        "MutationcreateNotespostAuth0FunctionMutationcreateNotespostAuth0FunctionAppSyncFunction0A11DE81",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationCreateUsersDataResolverFnMutationCreateUsersDataResolverFnAppSyncFunction9F182EFA",
+        "MutationCreateNotesDataResolverFnMutationCreateNotesDataResolverFnAppSyncFunctionA1276E64",
         "FunctionId"
        ]
       }
@@ -1181,7 +1181,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -1200,7 +1200,7 @@
                ":",
                {
                 "Fn::GetAtt": [
-                 "UsersTable",
+                 "NotesTable",
                  "TableArn"
                 ]
                }
@@ -1250,10 +1250,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/mutationCreateUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/mutationCreateNotesResolver"
    }
   },
-  "MutationupdateUsersinit0FunctionMutationupdateUsersinit0FunctionAppSyncFunctionA716BD27": {
+  "MutationupdateNotesinit0FunctionMutationupdateNotesinit0FunctionAppSyncFunctionBD179EA1": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1263,7 +1263,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationupdateUsersinit0Function",
+    "Name": "MutationupdateNotesinit0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/06db846fd14e6fc371f22b12b5545ba8e2dbfeda85d8c8d586c71c282166657b.vtl"
     },
@@ -1272,10 +1272,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationupdateUsersinit0Function/MutationupdateUsersinit0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationupdateNotesinit0Function/MutationupdateNotesinit0Function.AppSyncFunction"
    }
   },
-  "MutationupdateUserspreAuth0FunctionMutationupdateUserspreAuth0FunctionAppSyncFunction00E61263": {
+  "MutationupdateNotespreAuth0FunctionMutationupdateNotespreAuth0FunctionAppSyncFunctionCDC9DCC0": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1285,19 +1285,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationupdateUserspreAuth0Function",
+    "Name": "MutationupdateNotespreAuth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1003d4d9953b2263fbd7dbc9024cda49b95e9b8bbd8c759366a71bafacd629ca.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/39fb35c6f8e8573ffe3a63ba867cf543b05af129a104b387a44f03c3d85da0c3.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationupdateUserspreAuth0Function/MutationupdateUserspreAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationupdateNotespreAuth0Function/MutationupdateNotespreAuth0Function.AppSyncFunction"
    }
   },
-  "MutationupdateUsersauth0FunctionMutationupdateUsersauth0FunctionAppSyncFunctionE3E18598": {
+  "MutationupdateNotesauth0FunctionMutationupdateNotesauth0FunctionAppSyncFunction30753BFF": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1305,29 +1305,29 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationupdateUsersauth0Function",
+    "Name": "MutationupdateNotesauth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
     },
     "ResponseMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/11f898fdb09669992c8f6fc9d2b0389281045bc5d4c02a0d501ce296dca3b7fe.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/00f5a93234fcb2501c274a2a595cfe1962f00d7cf113f9636a6c438cb7fdb457.vtl"
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationupdateUsersauth0Function/MutationupdateUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationupdateNotesauth0Function/MutationupdateNotesauth0Function.AppSyncFunction"
    }
   },
-  "MutationupdateUserspostAuth0FunctionMutationupdateUserspostAuth0FunctionAppSyncFunction7A984666": {
+  "MutationupdateNotespostAuth0FunctionMutationupdateNotespostAuth0FunctionAppSyncFunction6F656086": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1337,7 +1337,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationupdateUserspostAuth0Function",
+    "Name": "MutationupdateNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -1346,10 +1346,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationupdateUserspostAuth0Function/MutationupdateUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationupdateNotespostAuth0Function/MutationupdateNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "MutationUpdateUsersDataResolverFnMutationUpdateUsersDataResolverFnAppSyncFunction9AC8323A": {
+  "MutationUpdateNotesDataResolverFnMutationUpdateNotesDataResolverFnAppSyncFunction876D41C0": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1357,12 +1357,12 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationUpdateUsersDataResolverFn",
+    "Name": "MutationUpdateNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/474bf0776ec2164a13191d1a0a9e057154931e4918fea5086f49850d02a5371b.vtl"
     },
@@ -1371,51 +1371,51 @@
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationUpdateUsersDataResolverFn/MutationUpdateUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationUpdateNotesDataResolverFn/MutationUpdateNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "UpdateUsersResolver": {
+  "UpdateNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "updateUsers",
+    "FieldName": "updateNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "MutationupdateUsersinit0FunctionMutationupdateUsersinit0FunctionAppSyncFunctionA716BD27",
+        "MutationupdateNotesinit0FunctionMutationupdateNotesinit0FunctionAppSyncFunctionBD179EA1",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationupdateUserspreAuth0FunctionMutationupdateUserspreAuth0FunctionAppSyncFunction00E61263",
+        "MutationupdateNotespreAuth0FunctionMutationupdateNotespreAuth0FunctionAppSyncFunctionCDC9DCC0",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationupdateUsersauth0FunctionMutationupdateUsersauth0FunctionAppSyncFunctionE3E18598",
+        "MutationupdateNotesauth0FunctionMutationupdateNotesauth0FunctionAppSyncFunction30753BFF",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationupdateUserspostAuth0FunctionMutationupdateUserspostAuth0FunctionAppSyncFunction7A984666",
+        "MutationupdateNotespostAuth0FunctionMutationupdateNotespostAuth0FunctionAppSyncFunction6F656086",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationUpdateUsersDataResolverFnMutationUpdateUsersDataResolverFnAppSyncFunction9AC8323A",
+        "MutationUpdateNotesDataResolverFnMutationUpdateNotesDataResolverFnAppSyncFunction876D41C0",
         "FunctionId"
        ]
       }
@@ -1425,7 +1425,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -1444,7 +1444,7 @@
                ":",
                {
                 "Fn::GetAtt": [
-                 "UsersTable",
+                 "NotesTable",
                  "TableArn"
                 ]
                }
@@ -1494,10 +1494,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/mutationUpdateUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/mutationUpdateNotesResolver"
    }
   },
-  "MutationdeleteUserspreAuth0FunctionMutationdeleteUserspreAuth0FunctionAppSyncFunction2FAFC4A6": {
+  "MutationdeleteNotespreAuth0FunctionMutationdeleteNotespreAuth0FunctionAppSyncFunctionAAA74859": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1507,19 +1507,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationdeleteUserspreAuth0Function",
+    "Name": "MutationdeleteNotespreAuth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1d61be542d09002a6506969b2390c0f8766f644db85aa02782c79abe5ff00ba.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a2c0f8a4d76f659d130c8a445801845ae9d33e5cc2c5ecd610edc272d4bd46e3.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationdeleteUserspreAuth0Function/MutationdeleteUserspreAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationdeleteNotespreAuth0Function/MutationdeleteNotespreAuth0Function.AppSyncFunction"
    }
   },
-  "MutationdeleteUsersauth0FunctionMutationdeleteUsersauth0FunctionAppSyncFunction2F8E43F3": {
+  "MutationdeleteNotesauth0FunctionMutationdeleteNotesauth0FunctionAppSyncFunction248D30A6": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1527,29 +1527,29 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationdeleteUsersauth0Function",
+    "Name": "MutationdeleteNotesauth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
     },
     "ResponseMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/265651b185e61f5298b6c679a916a0a86e4bf04bf2ab0579ee6445a0005f65e3.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/867fb7d7eb8e4127b6d0136b82c5c3f74a52eb410297086859986f8e7e4b02aa.vtl"
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationdeleteUsersauth0Function/MutationdeleteUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationdeleteNotesauth0Function/MutationdeleteNotesauth0Function.AppSyncFunction"
    }
   },
-  "MutationdeleteUserspostAuth0FunctionMutationdeleteUserspostAuth0FunctionAppSyncFunction3FE94774": {
+  "MutationdeleteNotespostAuth0FunctionMutationdeleteNotespostAuth0FunctionAppSyncFunction27E55D4B": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1559,7 +1559,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationdeleteUserspostAuth0Function",
+    "Name": "MutationdeleteNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -1568,10 +1568,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationdeleteUserspostAuth0Function/MutationdeleteUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationdeleteNotespostAuth0Function/MutationdeleteNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "MutationDeleteUsersDataResolverFnMutationDeleteUsersDataResolverFnAppSyncFunctionD1279FEC": {
+  "MutationDeleteNotesDataResolverFnMutationDeleteNotesDataResolverFnAppSyncFunction533A330A": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1579,12 +1579,12 @@
     },
     "DataSourceName": {
      "Fn::GetAtt": [
-      "UsersDataSource",
+      "NotesDataSource",
       "Name"
      ]
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "MutationDeleteUsersDataResolverFn",
+    "Name": "MutationDeleteNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4f7907d1209a2c9953a0c053df402c634e359546d70c7cc5c2e8e21ea734880f.vtl"
     },
@@ -1593,45 +1593,45 @@
     }
    },
    "DependsOn": [
-    "UsersDataSource"
+    "NotesDataSource"
    ],
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/MutationDeleteUsersDataResolverFn/MutationDeleteUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/MutationDeleteNotesDataResolverFn/MutationDeleteNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "DeleteUsersResolver": {
+  "DeleteNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "deleteUsers",
+    "FieldName": "deleteNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "MutationdeleteUserspreAuth0FunctionMutationdeleteUserspreAuth0FunctionAppSyncFunction2FAFC4A6",
+        "MutationdeleteNotespreAuth0FunctionMutationdeleteNotespreAuth0FunctionAppSyncFunctionAAA74859",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationdeleteUsersauth0FunctionMutationdeleteUsersauth0FunctionAppSyncFunction2F8E43F3",
+        "MutationdeleteNotesauth0FunctionMutationdeleteNotesauth0FunctionAppSyncFunction248D30A6",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationdeleteUserspostAuth0FunctionMutationdeleteUserspostAuth0FunctionAppSyncFunction3FE94774",
+        "MutationdeleteNotespostAuth0FunctionMutationdeleteNotespostAuth0FunctionAppSyncFunction27E55D4B",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "MutationDeleteUsersDataResolverFnMutationDeleteUsersDataResolverFnAppSyncFunctionD1279FEC",
+        "MutationDeleteNotesDataResolverFnMutationDeleteNotesDataResolverFnAppSyncFunction533A330A",
         "FunctionId"
        ]
       }
@@ -1641,7 +1641,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -1660,7 +1660,7 @@
                ":",
                {
                 "Fn::GetAtt": [
-                 "UsersTable",
+                 "NotesTable",
                  "TableArn"
                 ]
                }
@@ -1710,10 +1710,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/mutationDeleteUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/mutationDeleteNotesResolver"
    }
   },
-  "SubscriptiononCreateUsersauth0FunctionSubscriptiononCreateUsersauth0FunctionAppSyncFunction1FD2AB65": {
+  "SubscriptiononCreateNotesauth0FunctionSubscriptiononCreateNotesauth0FunctionAppSyncFunctionCD25EED1": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1723,19 +1723,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononCreateUsersauth0Function",
+    "Name": "SubscriptiononCreateNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe90e7168f7552bd22cfeb0df1664efa6ffa3681196824ac7f0e77c9367ed9ff.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononCreateUsersauth0Function/SubscriptiononCreateUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononCreateNotesauth0Function/SubscriptiononCreateNotesauth0Function.AppSyncFunction"
    }
   },
-  "SubscriptiononCreateUserspostAuth0FunctionSubscriptiononCreateUserspostAuth0FunctionAppSyncFunctionB1F9C753": {
+  "SubscriptiononCreateNotespostAuth0FunctionSubscriptiononCreateNotespostAuth0FunctionAppSyncFunction969925A4": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1745,7 +1745,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononCreateUserspostAuth0Function",
+    "Name": "SubscriptiononCreateNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -1754,10 +1754,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononCreateUserspostAuth0Function/SubscriptiononCreateUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononCreateNotespostAuth0Function/SubscriptiononCreateNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "SubscriptionOnCreateUsersDataResolverFnSubscriptionOnCreateUsersDataResolverFnAppSyncFunction08F39E1B": {
+  "SubscriptionOnCreateNotesDataResolverFnSubscriptionOnCreateNotesDataResolverFnAppSyncFunction1E6D3BF7": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1767,7 +1767,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptionOnCreateUsersDataResolverFn",
+    "Name": "SubscriptionOnCreateNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
     },
@@ -1778,34 +1778,34 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptionOnCreateUsersDataResolverFn/SubscriptionOnCreateUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptionOnCreateNotesDataResolverFn/SubscriptionOnCreateNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "SubscriptiononCreateUsersResolver": {
+  "SubscriptiononCreateNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "onCreateUsers",
+    "FieldName": "onCreateNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "SubscriptiononCreateUsersauth0FunctionSubscriptiononCreateUsersauth0FunctionAppSyncFunction1FD2AB65",
+        "SubscriptiononCreateNotesauth0FunctionSubscriptiononCreateNotesauth0FunctionAppSyncFunctionCD25EED1",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptiononCreateUserspostAuth0FunctionSubscriptiononCreateUserspostAuth0FunctionAppSyncFunctionB1F9C753",
+        "SubscriptiononCreateNotespostAuth0FunctionSubscriptiononCreateNotespostAuth0FunctionAppSyncFunction969925A4",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptionOnCreateUsersDataResolverFnSubscriptionOnCreateUsersDataResolverFnAppSyncFunction08F39E1B",
+        "SubscriptionOnCreateNotesDataResolverFnSubscriptionOnCreateNotesDataResolverFnAppSyncFunction1E6D3BF7",
         "FunctionId"
        ]
       }
@@ -1815,7 +1815,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -1857,10 +1857,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/subscriptionOnCreateUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/subscriptionOnCreateNotesResolver"
    }
   },
-  "SubscriptiononUpdateUsersauth0FunctionSubscriptiononUpdateUsersauth0FunctionAppSyncFunctionB5EBF745": {
+  "SubscriptiononUpdateNotesauth0FunctionSubscriptiononUpdateNotesauth0FunctionAppSyncFunction72C5104A": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1870,19 +1870,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononUpdateUsersauth0Function",
+    "Name": "SubscriptiononUpdateNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe90e7168f7552bd22cfeb0df1664efa6ffa3681196824ac7f0e77c9367ed9ff.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononUpdateUsersauth0Function/SubscriptiononUpdateUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononUpdateNotesauth0Function/SubscriptiononUpdateNotesauth0Function.AppSyncFunction"
    }
   },
-  "SubscriptiononUpdateUserspostAuth0FunctionSubscriptiononUpdateUserspostAuth0FunctionAppSyncFunctionDFB705B8": {
+  "SubscriptiononUpdateNotespostAuth0FunctionSubscriptiononUpdateNotespostAuth0FunctionAppSyncFunction1445EAA6": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1892,7 +1892,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononUpdateUserspostAuth0Function",
+    "Name": "SubscriptiononUpdateNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -1901,10 +1901,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononUpdateUserspostAuth0Function/SubscriptiononUpdateUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononUpdateNotespostAuth0Function/SubscriptiononUpdateNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "SubscriptionOnUpdateUsersDataResolverFnSubscriptionOnUpdateUsersDataResolverFnAppSyncFunction9DA94176": {
+  "SubscriptionOnUpdateNotesDataResolverFnSubscriptionOnUpdateNotesDataResolverFnAppSyncFunction8AB5BBD7": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -1914,7 +1914,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptionOnUpdateUsersDataResolverFn",
+    "Name": "SubscriptionOnUpdateNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
     },
@@ -1925,34 +1925,34 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptionOnUpdateUsersDataResolverFn/SubscriptionOnUpdateUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptionOnUpdateNotesDataResolverFn/SubscriptionOnUpdateNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "SubscriptiononUpdateUsersResolver": {
+  "SubscriptiononUpdateNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "onUpdateUsers",
+    "FieldName": "onUpdateNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "SubscriptiononUpdateUsersauth0FunctionSubscriptiononUpdateUsersauth0FunctionAppSyncFunctionB5EBF745",
+        "SubscriptiononUpdateNotesauth0FunctionSubscriptiononUpdateNotesauth0FunctionAppSyncFunction72C5104A",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptiononUpdateUserspostAuth0FunctionSubscriptiononUpdateUserspostAuth0FunctionAppSyncFunctionDFB705B8",
+        "SubscriptiononUpdateNotespostAuth0FunctionSubscriptiononUpdateNotespostAuth0FunctionAppSyncFunction1445EAA6",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptionOnUpdateUsersDataResolverFnSubscriptionOnUpdateUsersDataResolverFnAppSyncFunction9DA94176",
+        "SubscriptionOnUpdateNotesDataResolverFnSubscriptionOnUpdateNotesDataResolverFnAppSyncFunction8AB5BBD7",
         "FunctionId"
        ]
       }
@@ -1962,7 +1962,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -2004,10 +2004,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/subscriptionOnUpdateUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/subscriptionOnUpdateNotesResolver"
    }
   },
-  "SubscriptiononDeleteUsersauth0FunctionSubscriptiononDeleteUsersauth0FunctionAppSyncFunction92BC84DB": {
+  "SubscriptiononDeleteNotesauth0FunctionSubscriptiononDeleteNotesauth0FunctionAppSyncFunctionFDDD80B5": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -2017,19 +2017,19 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononDeleteUsersauth0Function",
+    "Name": "SubscriptiononDeleteNotesauth0Function",
     "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe90e7168f7552bd22cfeb0df1664efa6ffa3681196824ac7f0e77c9367ed9ff.vtl"
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
     },
     "ResponseMappingTemplate": "$util.toJson({})"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononDeleteUsersauth0Function/SubscriptiononDeleteUsersauth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononDeleteNotesauth0Function/SubscriptiononDeleteNotesauth0Function.AppSyncFunction"
    }
   },
-  "SubscriptiononDeleteUserspostAuth0FunctionSubscriptiononDeleteUserspostAuth0FunctionAppSyncFunction2BD38C7E": {
+  "SubscriptiononDeleteNotespostAuth0FunctionSubscriptiononDeleteNotespostAuth0FunctionAppSyncFunction5D5C2BAB": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -2039,7 +2039,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptiononDeleteUserspostAuth0Function",
+    "Name": "SubscriptiononDeleteNotespostAuth0Function",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
     },
@@ -2048,10 +2048,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptiononDeleteUserspostAuth0Function/SubscriptiononDeleteUserspostAuth0Function.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptiononDeleteNotespostAuth0Function/SubscriptiononDeleteNotespostAuth0Function.AppSyncFunction"
    }
   },
-  "SubscriptionOnDeleteUsersDataResolverFnSubscriptionOnDeleteUsersDataResolverFnAppSyncFunction2D84FDCC": {
+  "SubscriptionOnDeleteNotesDataResolverFnSubscriptionOnDeleteNotesDataResolverFnAppSyncFunction9DB833E4": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -2061,7 +2061,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "SubscriptionOnDeleteUsersDataResolverFn",
+    "Name": "SubscriptionOnDeleteNotesDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
     },
@@ -2072,34 +2072,34 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/SubscriptionOnDeleteUsersDataResolverFn/SubscriptionOnDeleteUsersDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/SubscriptionOnDeleteNotesDataResolverFn/SubscriptionOnDeleteNotesDataResolverFn.AppSyncFunction"
    }
   },
-  "SubscriptiononDeleteUsersResolver": {
+  "SubscriptiononDeleteNotesResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
     },
-    "FieldName": "onDeleteUsers",
+    "FieldName": "onDeleteNotes",
     "Kind": "PIPELINE",
     "PipelineConfig": {
      "Functions": [
       {
        "Fn::GetAtt": [
-        "SubscriptiononDeleteUsersauth0FunctionSubscriptiononDeleteUsersauth0FunctionAppSyncFunction92BC84DB",
+        "SubscriptiononDeleteNotesauth0FunctionSubscriptiononDeleteNotesauth0FunctionAppSyncFunctionFDDD80B5",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptiononDeleteUserspostAuth0FunctionSubscriptiononDeleteUserspostAuth0FunctionAppSyncFunction2BD38C7E",
+        "SubscriptiononDeleteNotespostAuth0FunctionSubscriptiononDeleteNotespostAuth0FunctionAppSyncFunction5D5C2BAB",
         "FunctionId"
        ]
       },
       {
        "Fn::GetAtt": [
-        "SubscriptionOnDeleteUsersDataResolverFnSubscriptionOnDeleteUsersDataResolverFnAppSyncFunction2D84FDCC",
+        "SubscriptionOnDeleteNotesDataResolverFnSubscriptionOnDeleteNotesDataResolverFnAppSyncFunction9DB833E4",
         "FunctionId"
        ]
       }
@@ -2109,7 +2109,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteUsers\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteNotes\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -2151,10 +2151,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/subscriptionOnDeleteUsersResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/subscriptionOnDeleteNotesResolver"
    }
   },
-  "UsersOwnerDataResolverFnUsersOwnerDataResolverFnAppSyncFunction45CA6068": {
+  "NotesOwnerDataResolverFnNotesOwnerDataResolverFnAppSyncFunctionD5CC8251": {
    "Type": "AWS::AppSync::FunctionConfiguration",
    "Properties": {
     "ApiId": {
@@ -2164,7 +2164,7 @@
      "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
     },
     "FunctionVersion": "2018-05-29",
-    "Name": "UsersOwnerDataResolverFn",
+    "Name": "NotesOwnerDataResolverFn",
     "RequestMappingTemplateS3Location": {
      "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/041534e5fd916595f752318f161512d7c7f83b9f2cf32d0f0be381c12253ff68.vtl"
     },
@@ -2175,10 +2175,10 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/UsersOwnerDataResolverFn/UsersOwnerDataResolverFn.AppSyncFunction"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/NotesOwnerDataResolverFn/NotesOwnerDataResolverFn.AppSyncFunction"
    }
   },
-  "UsersownerResolver": {
+  "NotesownerResolver": {
    "Type": "AWS::AppSync::Resolver",
    "Properties": {
     "ApiId": {
@@ -2190,7 +2190,7 @@
      "Functions": [
       {
        "Fn::GetAtt": [
-        "UsersOwnerDataResolverFnUsersOwnerDataResolverFnAppSyncFunction45CA6068",
+        "NotesOwnerDataResolverFnNotesOwnerDataResolverFnAppSyncFunctionD5CC8251",
         "FunctionId"
        ]
       }
@@ -2200,7 +2200,7 @@
      "Fn::Join": [
       "",
       [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Users\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"owner\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       "$util.qr($ctx.stash.put(\"typeName\", \"Notes\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"owner\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
@@ -2237,103 +2237,12 @@
      ]
     },
     "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
-    "TypeName": "Users"
+    "TypeName": "Notes"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/usersOwnerResolver"
-   }
-  },
-  "UsersProfileOwnerDataResolverFnUsersProfileOwnerDataResolverFnAppSyncFunction7B39B0B4": {
-   "Type": "AWS::AppSync::FunctionConfiguration",
-   "Properties": {
-    "ApiId": {
-     "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
-    },
-    "DataSourceName": {
-     "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPINONEDS22881B54Name"
-    },
-    "FunctionVersion": "2018-05-29",
-    "Name": "UsersProfileOwnerDataResolverFn",
-    "RequestMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/041534e5fd916595f752318f161512d7c7f83b9f2cf32d0f0be381c12253ff68.vtl"
-    },
-    "ResponseMappingTemplateS3Location": {
-     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e211960cdc39c1be17f62977f1e22f492de368f99e0b5f9320f50343d4777f89.vtl"
-    }
-   },
-   "UpdateReplacePolicy": "Delete",
-   "DeletionPolicy": "Delete",
-   "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/UsersProfileOwnerDataResolverFn/UsersProfileOwnerDataResolverFn.AppSyncFunction"
-   }
-  },
-  "UsersprofileOwnerResolver": {
-   "Type": "AWS::AppSync::Resolver",
-   "Properties": {
-    "ApiId": {
-     "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
-    },
-    "FieldName": "profileOwner",
-    "Kind": "PIPELINE",
-    "PipelineConfig": {
-     "Functions": [
-      {
-       "Fn::GetAtt": [
-        "UsersProfileOwnerDataResolverFnUsersProfileOwnerDataResolverFnAppSyncFunction7B39B0B4",
-        "FunctionId"
-       ]
-      }
-     ]
-    },
-    "RequestMappingTemplate": {
-     "Fn::Join": [
-      "",
-      [
-       "$util.qr($ctx.stash.put(\"typeName\", \"Users\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"profileOwner\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
-       {
-        "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
-       },
-       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":sts::",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":assumed-role/",
-       {
-        "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bauthNestedStackauthNestedStackResource4AEC4092Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthauthenticatedUserRoleB04F3DCBRef"
-       },
-       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":sts::",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":assumed-role/",
-       {
-        "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bauthNestedStackauthNestedStackResource4AEC4092Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthunauthenticatedUserRole47E07854Ref"
-       },
-       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
-       {
-        "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bauthNestedStackauthNestedStackResource4AEC4092Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthIdentityPoolDF37E6E4Ref"
-       },
-       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
-      ]
-     ]
-    },
-    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
-    "TypeName": "Users"
-   },
-   "UpdateReplacePolicy": "Delete",
-   "DeletionPolicy": "Delete",
-   "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/usersProfileOwnerResolver"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/notesOwnerResolver"
    }
   },
   "CDKMetadata": {
@@ -2342,17 +2251,17 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WOwWrDMAyGn6V3R2taNthxTdhxG8nuRbGV4iaRgyW3lJB3H0lHx06/PvQh/TvIX19gu8GrZNZ1We8bmD5IlFytaDtTtPyFEQdSigsUgZ1XH9hUJCFFS6ZIomH4w5YfM17lOLkb4xBcA9/Y9HRAIeNxgKkK/d0OPc0Gx1FubGEqV71sSlSsHyf/03tiu5QoArf+lCKujX4/9xeKs5H9EUVIBd6WMLKHQ7Id6VJgXtzPpGNSs65rxZPn02w4OIKzPF12W8ifId+cxfssJlY/EFT3/AHF7H8/NgEAAA=="
    },
    "Metadata": {
-    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Users/CDKMetadata/Default"
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data/api/Notes/CDKMetadata/Default"
    },
    "Condition": "CDKMetadataAvailable"
   }
  },
  "Outputs": {
-  "GetAttUsersTableStreamArn": {
+  "GetAttNotesTableStreamArn": {
    "Description": "Your DynamoDB table StreamArn.",
    "Value": {
     "Fn::GetAtt": [
-     "UsersTable",
+     "NotesTable",
      "TableStreamArn"
     ]
    },
@@ -2364,19 +2273,19 @@
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
-       "GetAtt:UsersTable:StreamArn"
+       "GetAtt:NotesTable:StreamArn"
       ]
      ]
     }
    }
   },
-  "GetAttUsersTableName": {
+  "GetAttNotesTableName": {
    "Description": "Your DynamoDB table name.",
    "Value": {
     "Fn::Join": [
      "",
      [
-      "Users-",
+      "Notes-",
       {
        "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
       },
@@ -2392,7 +2301,7 @@
        {
         "Ref": "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bdataapiGraphQLAPI3A90A4D8ApiId"
        },
-       "GetAtt:UsersTable:Name"
+       "GetAtt:NotesTable:Name"
       ]
      ]
     }

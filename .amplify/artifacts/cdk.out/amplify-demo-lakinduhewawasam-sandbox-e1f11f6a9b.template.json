@@ -49,6 +49,14 @@
     "amplifyApiModelSchemaS3Uri",
     "awsAppsyncAdditionalAuthenticationTypes"
    ]
+  },
+  "AWS::Amplify::Storage": {
+   "version": "1",
+   "stackOutputs": [
+    "buckets",
+    "storageRegion",
+    "bucketName"
+   ]
   }
  },
  "Outputs": {
@@ -222,6 +230,40 @@
   },
   "awsAppsyncAdditionalAuthenticationTypes": {
    "Value": "AMAZON_COGNITO_USER_POOLS"
+  },
+  "storageRegion": {
+   "Value": {
+    "Ref": "AWS::Region"
+   }
+  },
+  "bucketName": {
+   "Value": {
+    "Fn::GetAtt": [
+     "storage0EC3F24A",
+     "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bstorageBucketCBEF25A6Ref"
+    ]
+   }
+  },
+  "buckets": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "[\"{\\\"name\\\":\\\"storage\\\",\\\"bucketName\\\":\\\"",
+      {
+       "Fn::GetAtt": [
+        "storage0EC3F24A",
+        "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bstorageBucketCBEF25A6Ref"
+       ]
+      },
+      "\\\",\\\"storageRegion\\\":\\\"",
+      {
+       "Ref": "AWS::Region"
+      },
+      "\\\",\\\"paths\\\":{\\\"profile-pictures/*\\\":{\\\"guest\\\":[\\\"get\\\",\\\"list\\\"]},\\\"profile-pictures/${cognito-identity.amazonaws.com:sub}/*\\\":{\\\"entityidentity\\\":[\\\"get\\\",\\\"list\\\",\\\"write\\\",\\\"delete\\\"]}}}\"]"
+     ]
+    ]
+   }
   }
  },
  "Resources": {
@@ -378,7 +420,7 @@
        {
         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
        },
-       "/20ae6c68fa08a6975131fc03cbf8397308841c093cf64d73ae99de24e1512fb5.json"
+       "/0379e5f677f2cddcef707df2ebd468f25d7156a569d59eafcfda367d2819c0ef.json"
       ]
      ]
     }
@@ -388,6 +430,62 @@
    "Metadata": {
     "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/data.NestedStack/data.NestedStackResource",
     "aws:asset:path": "amplifydemolakinduhewawasamsandboxe1f11f6a9bdata8AC34401.nested.template.json",
+    "aws:asset:property": "TemplateURL"
+   }
+  },
+  "storage0EC3F24A": {
+   "Type": "AWS::CloudFormation::Stack",
+   "Properties": {
+    "Parameters": {
+     "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bauthNestedStackauthNestedStackResource4AEC4092Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthunauthenticatedUserRole47E07854Ref": {
+      "Fn::GetAtt": [
+       "auth179371D7",
+       "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthunauthenticatedUserRole47E07854Ref"
+      ]
+     },
+     "referencetoamplifydemolakinduhewawasamsandboxe1f11f6a9bauthNestedStackauthNestedStackResource4AEC4092Outputsamplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthauthenticatedUserRoleB04F3DCBRef": {
+      "Fn::GetAtt": [
+       "auth179371D7",
+       "Outputs.amplifydemolakinduhewawasamsandboxe1f11f6a9bauthamplifyAuthauthenticatedUserRoleB04F3DCBRef"
+      ]
+     }
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ],
+    "TemplateURL": {
+     "Fn::Join": [
+      "",
+      [
+       "https://s3.",
+       {
+        "Ref": "AWS::Region"
+       },
+       ".",
+       {
+        "Ref": "AWS::URLSuffix"
+       },
+       "/",
+       {
+        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+       },
+       "/afa793bbed5e42db653af65b607f9715cbd7d952b54821b2bcf70c41201420d7.json"
+      ]
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-demo-lakinduhewawasam-sandbox-e1f11f6a9b/storage.NestedStack/storage.NestedStackResource",
+    "aws:asset:path": "amplifydemolakinduhewawasamsandboxe1f11f6a9bstorageBF6DBD22.nested.template.json",
     "aws:asset:property": "TemplateURL"
    }
   },
